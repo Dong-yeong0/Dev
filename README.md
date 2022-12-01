@@ -7,6 +7,9 @@
 * type : table
 * document : row
 * field : column
+
+### Query
+
 ```
 {
   "_source": true,
@@ -40,6 +43,4 @@
     {"날짜": "asc"} 
   ],
 }
-
-// Query 방식
 ```

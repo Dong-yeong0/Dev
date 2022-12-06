@@ -35,6 +35,20 @@
 * data node와 master-eligible node의 일을 대신하는 이 노드는 대규모 클러스터에서 큰 이점이 있다.
 * 즉 로드밸런서와 비슷한 역할을 한다고 보시면 된다.
 
+### 인덱스( index )
+* Elasticsearch에서 index는 RDBMS에서 database와 대응하는 개념.
+* 또한 shard와 replica는 Elasticsearch에만 존재하는 개념이 아니라, 분산 데이터베이스 시스템에도 존재하는 개념.
+
+### 샤드( Shard )
+* 샤딩( sharding )은 데이터를 분산해서 저장하는 방법
+* 즉, Elasticsearch에서 스케일 아웃을 위해 index를 여러 shard로 쪼갠 것.
+* 기본적으로 1개가 존재하며, 검색 성능 향상을 위해 클러스터의 샤드 갯수를 조정하는 튜닝을 하기도 함.
+
+### 복제( Replica )
+* replica는 또 다른 형태의 shard라고 할 수 있다.
+* 노드를 손실했을 경우 데이터의 신뢰성을 위해 샤드들을 복제하는 것.
+* 따라서 replica는 서로 다른 노드에 존재할 것을 권장한다.
+
 ### Query
 
 ```

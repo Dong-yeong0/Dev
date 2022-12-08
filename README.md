@@ -2,6 +2,8 @@
 
 ---
 
+> ref https://esbook.kimjmin.net/
+
 ## Elasticsearch vs RDBMS
 
 1. Elasticsearch : RDBMS

@@ -70,8 +70,11 @@
 
 ---
 
-## REST API
-* http 메서드로 데이터를 처리
+## Elasticsearch 특징
+* Scale out : 샤드를 통해 수평적으로 규모가 늘어날 수 있다.
+* 고가용성 : Replica를 통해 데이터의 안정성을 보장.
+* Schema Free : Json 문서를 통해 데이터 검색을 수행하므로 shcema 개념이 없다.
+* Restful : Data CRUD 처리는 Restful API를 통해 수행하고 데이터를 처리 (GET, POST, PUT, DELETE)
 
 ## Query
 

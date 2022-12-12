@@ -112,3 +112,6 @@
   ],
 }
 ```
+
+## Mapping
+* long(정수), float(실수) type은 null_value를 통해 null형식을 지정해줄 수 있음.

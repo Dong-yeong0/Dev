@@ -114,4 +114,4 @@
 ```
 
 ## Mapping
-* long(정수), float(실수) type은 null_value를 통해 null형식을 지정해줄 수 있음.
+* long(정수), float(실수) type은 null_value를 통해 null형식을 지정해줄 수 있음 (index template 사용 : API로 요청해서 만들면 된다.).

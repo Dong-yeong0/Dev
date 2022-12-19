@@ -146,3 +146,4 @@
 * "index" : <true | false> - 디폴트는 true 입니다. false로 설정하면 해당 필드는 역 색인을 만들지 않아 검색이 불가능하게 됩니다.
 * "boost" : <숫자 값> - 디폴트는 1 입니다. 값이 1 보다 높으면 풀텍스트 검색 시 해당 필드 스코어 점수에 가중치를 부여합니다. 1보다 낮은 값을 입력하면 가중치가 내려갑니다.
 * "fielddata" : <true | false> - 디폴트는 false 입니다. true로 설정하면 해당 필드의 색인된 텀 들을 가지고 집계(aggregation) 또는 정렬(sorting)이 가능합니다. 이 설정은 다이나믹 설정으로 이미 정의된 매핑에 true 또는 false로 다시 적용하는 것이 가능합니다.
+### 등등 여러가지 Type 들은 공홈 (https://esbook.kimjmin.net/07-settings-and-mappings)

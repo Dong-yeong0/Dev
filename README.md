@@ -11,7 +11,7 @@
     3. index : database
 
     4. type : table
-
+ 
     5. document : row
 
     6. field : column

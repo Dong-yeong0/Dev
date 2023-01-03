@@ -2,3 +2,4 @@ Dockerfile
 *.md
 *.json
 src 
+*.yml

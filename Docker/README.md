@@ -14,3 +14,4 @@
 <img src="./img/docker_container.png" width="2000">
 
 #### 컨테이너는 가상화 기술 중  대표이고, LXC(Linux Container)가 있다.기존 OS를 가상화 시켰던 것과 달리 컨테이너는 OS레벨에서 가상화로 프로세스들을 격리시켜 동작하는 방식.
+#### Notion

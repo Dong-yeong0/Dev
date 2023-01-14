@@ -1,9 +1,9 @@
-# Study about Jenkins (CI/CD)
+# 📖Jenkins (CI/CD)
 ### Kevin 2023-01-04
 ---------
 ## What is CI / CD
     
-<img src="./img/cicd.png" width="2000">
+<img src="./img/cicd.png" width="1000">
 
 #### CI / CD는 Application 개발 단계를 자동화 하여 Application을 더욱 짧은 주기로 고객에게 제공하는 방법이다.
 
@@ -50,7 +50,7 @@
     5. 애플리케이션 서버로의 Deploy(배포) 등 간략화
 
 #### 만일 우리가 GitLab Webhook과 같이 사용하게 된다면.
-<img src="./img/jenkins_pipeline.png" width="2000">
+<img src="./img/jenkins_pipeline.png" width="1000">
 
 #####  흐름상
      1. 로컬에서 개발 후 깃허브로 커밋 및 푸시

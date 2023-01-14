@@ -13,12 +13,19 @@
     서버 관리자 입장에서는 CPU 점유율이 10%정도 밖에 되지 않는 서버들은 결국 리소스 낭비일 수 밖에 없다.
     그렇다고 모든 서비스를 한 서버안에 올리게 되면 안정성 문제가 생길 수 있다, 그래서 안정성을 높이며 리소스도 최대한 활용할 수 있는 방법으로 나타난 것이 바로 **서버 가상화**이다.
 ## Container
-<img src="./img/docker_container.png" width="2000">
+<img src="./img/docker_container.png" width="1000">
 
 #### 컨테이너는 가상화 기술 중  대표이고, LXC(Linux Container)가 있다.기존 OS를 가상화 시켰던 것과 달리 컨테이너는 OS레벨에서 가상화로 프로세스들을 격리시켜 동작하는 방식.
 ---------
 ## VM vs Docker 가상화
-<img src="./img/vm_vs_docker.jpg" width="2000">
+<img src="./img/vm_vs_docker.jpg" width="1000">
 
-    VM은 Host OS 위에 가상화를 하기 위한 Hypervisor 엔진 그리고 그 위 Guest OS를 올려 사용한다. 
-    가상화 된 하드웨어 위 OS가 올라가는 형태로 거의 완벽에 가깝게 Host와 분리된다.
+    VM은 가상화된 하드웨어 위에 OS가 올라가는 형태로 거의 완벽하게 Host와 분리된다. 
+
+    반면 컨테이너 기반 가상화는 Docker 엔진 위에 Application 실행에 필요한 Binary만 올라간다. 
+    OS 가상화를 보면 Host OS와 완전히 분리되는 장점은 있지만 OS위에 OS를 올리기 때문에 무겁고 느릴수 밖에 없는 구조다. 
+
+    반면 컨테이너 기반 가상화는 Host OS 그리고 Docker 엔진위에서 바로 동작하며 Host와 커널 공유. 
+    커널을 공유하게 되면 Input, output 처리가 쉽게 되어 성능의 효율을 높일 수 있다.
+
+    컨테이너를 사용하는 것은 가상 머신을 생성하는 것이 아니라 Host OS가 사용하는 자원을 분리하여 여러 환경을 만들 수 있도록 하는 것.

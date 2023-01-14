@@ -1,3 +1,3 @@
-# Study about SonarQube
+# 📖SonarQube
 ### Kevin 2023-01-04
 ---

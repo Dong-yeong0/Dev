@@ -38,3 +38,18 @@
 
     간략히,
     컨테이너를 사용하는 것은 가상머신을 생성하는 것이 아니라 Host OS가 사용하는 자원을 분리하여 여러 환경을 만들 수 있도록 하는 것이다.
+
+---------
+
+# image
+**when running a container, it uses an isolated filesystem.** 
+
+*컨테이너를 실행할 때, 컨테이너는 격리된 파일 시스템을 사용한다.*
+
+This custom filesystem is provided by a container image. 
+
+*이 커스텀 파일 시스템은 컨테이너 이미지에서 제공된다.*
+
+Since the image contains the container’s filesystem, it must contain everything needed to run an application - all dependencies, configurations, scripts, binaries, etc. 
+
+The image also contains other configuration for the container, such as environment variables, a default command to run, and other metadata.

@@ -47,3 +47,6 @@ https://www.techtarget.com/searchitoperations/definition/Docker-image
     docker images [OPTIONS] [REPOSITORY[:TAG]]
 
 Doker image는 Docker container 안에서 코드를 실행할 때 사용되는 파일이며 또한, 템플릿처럼 도커 컨테이너를 빌드하는 명령어의 역할을 한다
+
+# volume & mount
+

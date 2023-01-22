@@ -48,6 +48,38 @@ https://www.techtarget.com/searchitoperations/definition/Docker-image
 
 Doker image는 Docker container 안에서 코드를 실행할 때 사용되는 파일이며 또한, 템플릿처럼 도커 컨테이너를 빌드하는 명령어의 역할을 한다
 
-# volume & mount
+# Volume & Mount
+https://bentist.tistory.com/79
+## 1) Volume
+간략히, 도커 엔진이 관리하는 도커 스토리지 directory에 새 directory를 생성하여 컨테이너 내부의 볼륨 데이터를 저장하는 방식.
+
+저장경로는 /var/lib/docker/volumes/~ 에 저장이 된다.
+
+볼륨을 컨테이너에 의존시키면 이 디렉토리가 컨테이너에 탑재되어, 도커에 의해 관리가 되며 Host 시스템 
+의 핵심 기능과 분리가 된다,
+
+바인드 마운트가 Host 머신의 디렉토리 구조나 OS에 의존적인 반면, 볼륨은 도커에 의해 완전하게 관리된다.
+
+<img src="./img/docker_volume.png" width="700">
+
+*출처: https://deveric.tistory.com/111*
+
+
+```
+# volume 조회
+docker volume ls
+```
+```
+# volume 생성
+docker create volume volume_name
+```
+```
+# volume 삭제
+docker volume rm volume_name
+```
+```
+# 사용 안하는 volume 삭제
+docker volume prune
+``` 
 
 

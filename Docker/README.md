@@ -41,7 +41,12 @@ Hypervisor를 이용한 가상화를 보면 Host OS와 완전히 분리되는 �
 
 ---------
 
-# image
+# Mount 
+Mount는 물리적인 장치를 특정한 디렉토리에 연결시켜주는 과정
+
+Linux에는 하드디스크의 파티션, CD/DVD, USB메모리 등을 사용하려면 특정한 위치에 연결을 해 줘야 한다.
+
+# Image
 https://www.techtarget.com/searchitoperations/definition/Docker-image
 
     docker images [OPTIONS] [REPOSITORY[:TAG]]
@@ -81,5 +86,3 @@ docker volume rm volume_name
 # 사용 안하는 volume 삭제
 docker volume prune
 ``` 
-
-

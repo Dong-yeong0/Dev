@@ -40,12 +40,6 @@ Hypervisor를 이용한 가상화를 보면 Host OS와 완전히 분리되는 �
 컨테이너를 사용하는 것은 가상머신을 생성하는 것이 아니라 Host OS가 사용하는 자원을 분리하여 여러 환경을 만들 수 있도록 하는 것이다.
 
 ---------
-
-# Mount 
-Mount는 물리적인 장치를 특정한 디렉토리에 연결시켜주는 과정
-
-Linux에는 하드디스크의 파티션, CD/DVD, USB메모리 등을 사용하려면 특정한 위치에 연결을 해 줘야 한다.
-
 # Image
 https://www.techtarget.com/searchitoperations/definition/Docker-image
 
@@ -55,7 +49,13 @@ Doker image는 Docker container 안에서 코드를 실행할 때 사용되는 �
 
 # Volume & Mount
 https://bentist.tistory.com/79
-## 1) Volume
+
+## 1)Mount 
+Mount는 물리적인 장치를 특정한 디렉토리에 연결시켜주는 과정
+
+Linux에는 하드디스크의 파티션, CD/DVD, USB메모리 등을 사용하려면 특정한 위치에 연결을 해 줘야 한다.
+
+## 2) Volume
 간략히, 도커 엔진이 관리하는 도커 스토리지 directory에 새 directory를 생성하여 컨테이너 내부의 볼륨 데이터를 저장하는 방식.
 
 저장경로는 /var/lib/docker/volumes/~ 에 저장이 된다.

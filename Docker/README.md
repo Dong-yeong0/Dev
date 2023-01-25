@@ -48,7 +48,7 @@ https://www.techtarget.com/searchitoperations/definition/Docker-image
 Doker image는 Docker container 안에서 코드를 실행할 때 사용되는 파일이며 또한, 템플릿처럼 도커 컨테이너를 빌드하는 명령어의 역할을 한다
 
 # Volume & Mount
-https://bentist.tistory.com/79
+ref : https://bentist.tistory.com/79
 
 ## 1)Mount 
 Mount는 물리적인 장치를 특정한 디렉토리에 연결시켜주는 과정
@@ -86,3 +86,9 @@ docker volume rm volume_name
 # 사용 안하는 volume 삭제
 docker volume prune
 ``` 
+
+## 3) Bind mount
+Bind mount는 도커가 관리하는 디렉토리가 아닌, Host 시스템의 파일이나 디렉토리가 컨테이너에 마운트되며 호스트 시스템의 절대 경로가 참조되는 방식. 
+이 방식의 문제는 도커의 관리없이 Host 디렉토리와 마운트를 해서 컨테이너에서 호스트의 파일 시스템에 접근하여 컨테이너에 지정된 파일이 아닌 다른 파일을 삭체하거나 수정할 수 있게 된다. 
+그래서 호스트 시스템의 비 Docker 프로세스에 영향을 줄 수 있고 보안에도 영향을 미칠 수 있다. 
+따라서 도커 Volume을 사용하는 것을 권장한다.

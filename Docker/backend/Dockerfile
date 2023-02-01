@@ -1,6 +1,7 @@
 FROM node:18.13.0-alpine
 
 RUN mkdir app
+RUN chmod 755 app
 WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
 COPY package.json /app/package.json

@@ -1,4 +1,2 @@
 *.json
-src
 node_modules
-Jenkinsfile

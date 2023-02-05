@@ -27,21 +27,21 @@ services:
         networks:
             - frontend
 
-    server:
-        build:
-            context: ./backend/
-        container_name: backend
-        restart: "on-failure"
-        expose:
-            - 8080
-        volumes:
-            - './backend:/backend'
-            - '/backend/node_modules'
-        environment:
-            - NODE_ENV=development
-            - CHOKIDAR_USEPOLLING=true
-        stdin_open: true
-        tty: true
+    # server:
+    #     build:
+    #         context: ./backend/
+    #     container_name: backend
+    #     restart: "on-failure"
+    #     expose:
+    #         - 8080
+    #     volumes:
+    #         - './backend:/backend'
+    #         - '/backend/node_modules'
+    #     environment:
+    #         - NODE_ENV=development
+    #         - CHOKIDAR_USEPOLLING=true
+    #     stdin_open: true
+    #     tty: true
 
 networks:
     frontend:

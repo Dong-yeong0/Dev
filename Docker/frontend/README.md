@@ -1,12 +1,3 @@
-# 📖개발환경
-
-#### OS: Windows11, WSL2, Docker Desktop
-#### Node version: 18.13.0
-#### Framework : Express.js
-
-#### Dependency
-> axios
-
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

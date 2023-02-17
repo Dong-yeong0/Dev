@@ -24,13 +24,20 @@ MSA (Micro Service Architecture)가 트렌드가 되면서 MSA의 단점
 5. 원활한 이전 - Docker 기반의 애플리케이션 로컬 개발 시스템에서 AWS으 ㅣ프로덕션 배포로 원활하게 이전이 가능하다.
 6. 비용 절감 및 빠른 서비스 제공
 # Container
-<img src="./img/docker_container.png" width="700">
+<p align="center">
+    <img src="./img/docker_container.png" width="700">
+</p>
+
 
 컨테이너는 가상화 기술 중  대표이고, LXC(Linux Container)가 있다.
 기존 OS를 가상화 시켰던 것과 달리 컨테이너는 OS레벨에서 가상화로 프로세스들을 격리시켜 동작하는 방식.
 
 ## VM vs Docker 가상화
-<img src="./img/vm_vs_docker.jpg" width="1000">
+
+<p align="center">
+    <img src="./img/vm_vs_docker.jpg" width="700">
+</p>
+
 
 VM은 Hypervisor를 이용하여 여러 개의 OS를 하나의 호스트에서 생성하여 사용하는 방식으로
 가상화된 하드웨어 위에 OS가 올라가는 형태로 거의 완벽하게 Host와 분리된다.
@@ -75,7 +82,10 @@ Linux에는 하드디스크의 파티션, CD/DVD, USB메모리 등을 사용하�
 
 바인드 마운트가 Host 머신의 디렉토리 구조나 OS에 의존적인 반면, 볼륨은 도커에 의해 완전하게 관리된다.
 
-<img src="./img/docker_volume.png" width="700">
+<p align="center">
+    <img src="./img/docker_volume.png" width="500">
+</p>
+
 
 *출처: https://deveric.tistory.com/111*
 

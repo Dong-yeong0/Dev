@@ -64,3 +64,23 @@
 <p align="center">
     <img src="./img/sonarqube_2.png" width="1000" >
 </p>
+
+-------
+
+### Docker
+
+**실행 전 확인 할 사항**
+
+``` shell
+# max map count 값 확인 (Default 65530)
+sudo sysctl vm.max_map_count
+
+# max map count 값 변경
+sudo sysctl -w vm.max_map_count=262144
+```
+Docker에 올라가게 되면 SonarQube의 기본 정보사항은
+
+ID: admin
+PASS: admin
+
+로 저장 되어 있다 이 정보로 로그인 시 비밀번호 변경을 요구를 함.

@@ -1,6 +1,13 @@
 # 📖Jenkins (CI/CD)
 ### Kevin 2023-01-04
+
+#### Ref
+[Jenkins란 무엇이며 왜 사용해야 할까요?](https://jjeongil.tistory.com/810)\
+[빌드란? 그리고 Jenkins(젠킨스)란? 써야 하는 이유](https://krksap.tistory.com/1377)\
+[[Jenkins] 젠킨스란 무엇인가](https://ict-nroo.tistory.com/31)
+
 ---------
+
 # What is CI / CD
 
 <p align="center">
@@ -64,8 +71,13 @@ Commit할 때마다 빌드와 일련의 자동 테스트가 이루어져 동작�
 3. Build가 성공할 경우 deploy server로 전송
 4. Build가 실패할 경우 log를 남기고 알림
 
-### Ref
-[Jenkins란 무엇이며 왜 사용해야 할까요?](https://jjeongil.tistory.com/810)\
-[빌드란? 그리고 Jenkins(젠킨스)란? 써야 하는 이유](https://krksap.tistory.com/1377)\
-[[Jenkins] 젠킨스란 무엇인가](https://ict-nroo.tistory.com/31)
 
+
+### Settings
+
+Docker로 처음 Jenkins 올리면 초기 비밀번호 확인
+
+``` docker
+docker exec jenkins cat /var/jenkins_home/secrets/initialAdminPa
+ssword
+```

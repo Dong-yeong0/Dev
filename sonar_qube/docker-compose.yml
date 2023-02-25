@@ -22,7 +22,7 @@ services:
         image: sonarqube:8.9.2-community
         restart: unless-stoped
         ports:
-            - '9000:9000'
+            - '9001:9001'
         networks:
             - sonarnet
         container_name: sonarqube

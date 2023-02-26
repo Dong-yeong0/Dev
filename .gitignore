@@ -8,3 +8,5 @@ volume
 # ! Jenkins
 jenkins_home
 Jenkinsfile
+
+build

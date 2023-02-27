@@ -77,7 +77,6 @@ Commit할 때마다 빌드와 일련의 자동 테스트가 이루어져 동작�
 
 Docker로 처음 Jenkins 올리면 초기 비밀번호 확인
 
-``` docker
-docker exec jenkins cat /var/jenkins_home/secrets/initialAdminPa
-ssword
+``` shell
+docker exec jenkins cat /var/jenkins_home/secrets/initialAdminPassword
 ```

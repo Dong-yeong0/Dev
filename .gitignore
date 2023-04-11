@@ -10,3 +10,9 @@ jenkins_home
 Jenkinsfile
 
 build
+
+# ! ELK
+.env
+certs
+esdata
+kibanadata

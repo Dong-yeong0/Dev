@@ -14,5 +14,5 @@ build
 # ! ELK
 .env
 certs
-esdata
+esdata01
 kibanadata

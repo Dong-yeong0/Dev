@@ -1,11 +1,10 @@
-version: "3.8"
+version: "2.2"
 
 services:
   setup:
     image: docker.elastic.co/elasticsearch/elasticsearch:${STACK_VERSION}
-    container_name: setup
     volumes:
-      - ./certs:/usr/share/elasticsearch/config/certs
+      - certs:/usr/share/elasticsearch/config/certs
     user: "0"
     command: >
       bash -c '
@@ -52,18 +51,15 @@ services:
       retries: 120
 
   es01:
-    image: docker.elastic.co/elasticsearch/elasticsearch:${STACK_VERSION}
-    container_name: es01
     depends_on:
       setup:
         condition: service_healthy
+    image: docker.elastic.co/elasticsearch/elasticsearch:${STACK_VERSION}
     volumes:
-      - ./certs:/usr/share/elasticsearch/config/certs
-      - ./esdata01:/usr/share/elasticsearch/data
+      - certs:/usr/share/elasticsearch/config/certs
+      - esdata01:/usr/share/elasticsearch/data
     ports:
       - ${ES_PORT}:9200
-    networks:
-      - apm_env
     environment:
       - node.name=es01
       - cluster.name=${CLUSTER_NAME}
@@ -97,14 +93,14 @@ services:
       timeout: 10s
       retries: 120
 
+
   apm:
-    image: docker.elastic.co/apm/apm-server:${STACK_VERSION}
-    container_name: apm-server
     depends_on:
       es01:
         condition: service_healthy
+    image: docker.elastic.co/apm/apm-server:${STACK_VERSION}
     volumes:
-      - ./certs:/usr/share/apm-server/certs
+      - certs:/usr/share/apm-server/certs
     ports:
       - ${APM_PORT}:8200
     command: >
@@ -119,14 +115,13 @@ services:
         -E output.elasticsearch.ssl.key=/usr/share/apm-server/certs/es01/es01.key
 
   kibana:
-    image: docker.elastic.co/kibana/kibana:${STACK_VERSION}
-    container_name: kibana
     depends_on:
       es01:
         condition: service_healthy
+    image: docker.elastic.co/kibana/kibana:${STACK_VERSION}
     volumes:
-      - ./certs:/usr/share/kibana/config/certs
-      - ./kibanadata:/usr/share/kibana/data
+      - certs:/usr/share/kibana/config/certs
+      - kibanadata:/usr/share/kibana/data
     ports:
       - ${KIBANA_PORT}:5601
     environment:
@@ -146,6 +141,7 @@ services:
       timeout: 10s
       retries: 120
 
+
 volumes:
   certs:
     driver: local
@@ -153,7 +149,3 @@ volumes:
     driver: local
   kibanadata:
     driver: local
-
-networks:
-  apm_env:
-    external: true

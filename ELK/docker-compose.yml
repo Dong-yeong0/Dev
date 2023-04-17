@@ -1,10 +1,12 @@
-version: "2.2"
+version: "3.8"
 
 services:
   setup:
     image: docker.elastic.co/elasticsearch/elasticsearch:${STACK_VERSION}
+    container_name: setup
     volumes:
-      - certs:/usr/share/elasticsearch/config/certs
+      - ./certs:/usr/share/elasticsearch/config/certs
+      # - ./elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
     user: "0"
     command: >
       bash -c '
@@ -52,14 +54,16 @@ services:
 
   es01:
     depends_on:
-      setup:
-        condition: service_healthy
+      setup: { condition: service_healthy }
     image: docker.elastic.co/elasticsearch/elasticsearch:${STACK_VERSION}
+    container_name: elasticsearch
     volumes:
-      - certs:/usr/share/elasticsearch/config/certs
-      - esdata01:/usr/share/elasticsearch/data
+      - ./certs:/usr/share/elasticsearch/config/certs
+      - ./esdata:/usr/share/elasticsearch/data
     ports:
       - ${ES_PORT}:9200
+    networks:
+      - apm_env
     environment:
       - node.name=es01
       - cluster.name=${CLUSTER_NAME}
@@ -84,28 +88,25 @@ services:
         soft: -1
         hard: -1
     healthcheck:
-      test:
-        [
-          "CMD-SHELL",
-          "curl -s --cacert config/certs/ca/ca.crt https://localhost:9200 | grep -q 'missing authentication credentials'",
-        ]
+      test: ["CMD-SHELL", "[ -f config/certs/es01/es01.crt ]"]
       interval: 10s
       timeout: 10s
       retries: 120
 
-
   apm:
-    depends_on:
-      es01:
-        condition: service_healthy
     image: docker.elastic.co/apm/apm-server:${STACK_VERSION}
+    container_name: apm-server
+    depends_on:
+      es01: { condition: service_healthy }
     volumes:
-      - certs:/usr/share/apm-server/certs
+      - ./certs:/usr/share/apm-server/certs
     ports:
       - ${APM_PORT}:8200
-    command: >
+    networks:
+      - apm_env
+    command:
       apm-server -e
-        -E output.elasticsearch.hosts=["es01:9200"]
+        -E output.elasticsearch.hosts=["es01:${ES_PORT}"]
         -E output.elasticsearch.protocol=https
         -E output.elasticsearch.username=elastic
         -E output.elasticsearch.password=${ELASTIC_PASSWORD}
@@ -113,15 +114,22 @@ services:
         -E output.elasticsearch.ssl.certificate_authorities=/usr/share/apm-server/certs/ca/ca.crt
         -E output.elasticsearch.ssl.certificate=/usr/share/apm-server/certs/es01/es01.crt
         -E output.elasticsearch.ssl.key=/usr/share/apm-server/certs/es01/es01.key
-
+    healthcheck:
+      interval: 10s
+      retries: 10
+      test: curl --write-out 'HTTP %{http_code}' --fail --silent --output /dev/null http://localhost:8200/
+  
   kibana:
-    depends_on:
-      es01:
-        condition: service_healthy
     image: docker.elastic.co/kibana/kibana:${STACK_VERSION}
+    container_name: kibana
+    depends_on:
+      es01: { condition: service_healthy }
     volumes:
-      - certs:/usr/share/kibana/config/certs
-      - kibanadata:/usr/share/kibana/data
+      - ./certs:/usr/share/kibana/config/certs
+      - ./kibanadata:/usr/share/kibana/data
+      # - ./kibana.yml:/usr/share/kibana/config/kibana.yml
+    networks:
+      - apm_env
     ports:
       - ${KIBANA_PORT}:5601
     environment:
@@ -141,11 +149,14 @@ services:
       timeout: 10s
       retries: 120
 
-
 volumes:
   certs:
     driver: local
-  esdata01:
+  esdata:
     driver: local
   kibanadata:
     driver: local
+
+networks:
+  apm_env:
+    external: true
